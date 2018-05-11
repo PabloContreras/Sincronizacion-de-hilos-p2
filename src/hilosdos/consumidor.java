@@ -11,10 +11,16 @@ package hilosdos;
  * @author pablo
  */
 public class consumidor extends Thread{
-    int n;
-    monitor m;
-    public consumidor(monitor m, int n){
-        this.n = n;
-        this.m = m;
+    private int numero;
+    private monitor monitor;
+    public consumidor(monitor monitor, int numero){
+        this.numero = numero;
+        this.monitor = monitor;
+    }
+    public void run(){
+        int valor = 0;
+        for (int i = 0; i < 10; i++) {
+            valor = monitor.get(numero);
+        }
     }
 }
